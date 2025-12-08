@@ -1,0 +1,37 @@
+{
+  "name": "EcoMindShift",
+  "type": "ecommerce",
+  "description": "EcoMindShift combines climate tech solutions with mental health apps to help small businesses and individuals reduce their carbon footprint while managing stress related to environmental issues.",
+  "generated_at": "2025-12-08T05:21:10.978650",
+  "components": [
+    "spec",
+    "build",
+    "deploy",
+    "spec_requirements",
+    "spec_architecture",
+    "build_code",
+    "build_test"
+  ],
+  "files_written": [
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\components\\component.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\__tests__\\component.test.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\vercel.json",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\components\\requirements.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\__tests__\\architecture.test.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\vercel.json",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\components\\test.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\app\\layout.tsx",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\app\\globals.css",
+    "businesses\\production_test\\ecommerce\\ecomindshift\\src\\app\\page.tsx"
+  ],
+  "tasks_completed": 7,
+  "tasks_failed": 0,
+  "ap2_estimated_cost": 45.2,
+  "ap2_estimated_tokens": 19500,
+  "ap2_generation_approval": null,
+  "infrastructure_approvals": {
+    "analytics": null,
+    "database": null,
+    "storage": null
+  }
+}

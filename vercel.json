@@ -1,0 +1,149 @@
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    expirationTimeToLiveSeconds: number;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: Record<string, any>;
+  netlify?: Record<string, any>;
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cache: CacheStrategy;
+  framework: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build && next export",
+    output: ".out"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_STRIPE_KEY: process.env.NEXT_PUBLIC_STRIPE_KEY
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }
+      ]
+    }
+  ],
+  cache: {
+    rules: [
+      {
+        urlPathPattern: "**/*.js",
+        expirationTimeToLiveSeconds: 31536000
+      },
+      {
+        urlPathPattern: "/api/**",
+        expirationTimeToLiveSeconds: 0
+      }
+    ]
+  },
+  framework: {
+    vercel: {
+      buildCommand: "next build && next export",
+      outDir: ".out"
+    },
+    netlify: {
+      publish: ".out",
+      functions: "functions"
+    }
+  }
+};
+
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    expirationTimeToLiveSeconds: number;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: Record<string, any>;
+  netlify?: Record<string, any>;
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cache: CacheStrategy;
+  framework: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build && next export",
+    output: ".out"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_STRIPE_KEY: process.env.NEXT_PUBLIC_STRIPE_KEY
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }
+      ]
+    }
+  ],
+  cache: {
+    rules: [
+      {
+        urlPathPattern: "**/*.js",
+        expirationTimeToLiveSeconds: 31536000
+      },
+      {
+        urlPathPattern: "/api/**",
+        expirationTimeToLiveSeconds: 0
+      }
+    ]
+  },
+  framework: {
+    vercel: {
+      buildCommand: "next build && next export",
+      outDir: ".out"
+    },
+    netlify: {
+      publish: ".out",
+      functions: "functions"
+    }
+  }
+};
